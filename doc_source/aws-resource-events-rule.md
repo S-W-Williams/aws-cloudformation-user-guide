@@ -182,10 +182,8 @@ PermissionForEventsToInvokeLambda:
       Ref: "LambdaFunction"
     Action: "lambda:InvokeFunction"
     Principal: "events.amazonaws.com"
-    SourceArn: 
-      Fn::GetAtt: 
-        - "ScheduledRule"
-        - "Arn"
+    SourceArn:
+      Fn::GetAtt: [ScheduledRule, Arn]
 ```
 
 ### Invoke Lambda Function in Response to an Event<a name="aws-resource-events-rule--examples--Invoke_Lambda_Function_in_Response_to_an_Event"></a>
@@ -249,9 +247,7 @@ EventRule:
     Targets: 
       - 
         Arn: 
-          Fn::GetAtt: 
-            - "LambdaFunction"
-            - "Arn"
+          Fn::GetAtt: [LambdaFunction, Arn]
         Id: "TargetFunctionV1"
 PermissionForEventsToInvokeLambda: 
   Type: AWS::Lambda::Permission
@@ -260,10 +256,8 @@ PermissionForEventsToInvokeLambda:
       Ref: "LambdaFunction"
     Action: "lambda:InvokeFunction"
     Principal: "events.amazonaws.com"
-    SourceArn: 
-      Fn::GetAtt: 
-        - "EventRule"
-        - "Arn"
+    SourceArn:
+      Fn::GetAtt: [EventRule, Arn]
 ```
 
 ### Notify a Topic in Response to a Log Entry<a name="aws-resource-events-rule--examples--Notify_a_Topic_in_Response_to_a_Log_Entry"></a>
